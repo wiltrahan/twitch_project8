@@ -1,0 +1,10 @@
+Page should load a set number of streamers
+each streamer should showcase icon
+it should show streamer name
+should display IF user is currently streaming
+placeholder if streamer is no longer acitve
+
+additional requires
+text field to add another streamer to the list; doesn't need to be permanent
+use twitch api with key //done
+
