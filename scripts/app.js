@@ -51,10 +51,11 @@ function twitchLookup() {
 function displayUsers() {
   model.twitchList.forEach(function(user) {
     var name = $("<h4></h4>").text(user.name);
+    var status = $("<p></p>").text(user.status);
     var logo = $("<img>");
     logo.attr("src", user.logo);
     // logo.attr("src");
-    var nameView = $("<li></li>").attr("class", "name-group-item").append(name, logo);
+    var nameView = $("<li></li>").attr("class", "name-group-item").append(name, logo, status);
     // var logo = $("<li></li>").attr("class", "name-group-item").append()
     $("#users ul").append(nameView);
   });
@@ -62,7 +63,6 @@ function displayUsers() {
 
 $(document).ready(function() {
   twitchLookup();
-
 });
 
 
