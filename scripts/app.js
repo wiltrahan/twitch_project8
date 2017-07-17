@@ -5,44 +5,13 @@ var model = {
   twitchList: []
 };
 
-// var users = [
-//   "ESL_SC2",
-//   "OgamingSC2",
-//   "cretetion",
-//   "freecodecamp",
-//   "storbeck",
-//   "habathcx",
-//   "RobotCaleb",
-//   "noobs2ninjas"
-// ];
-
-//pass users array, loop through each name
-//push into twitchListarray
-
-// function twitchLookup(users) {
-//   for (var i = 0; i < users.length; i++) {
-//     $.ajax({
-//       url: route + "channels/" + users[i] + "?client_id=" + myKey,
-//       success: function(response) {
-//         model.twitchList.push(response);
-//         // console.log(response);
-//         // model.twitchList = response.results;
-
-//       }
-//     });
-//   }
-//   // displayUsers();
-// console.log(model.twitchList);
-
-// };
-//
 function twitchLookup() {
   var users = [
   "ESL_SC2",
   "OgamingSC2",
   "cretetion",
   "freecodecamp",
-  "storbeck",
+  // "storbeck",
   "habathcx",
   "RobotCaleb",
   "noobs2ninjas"
@@ -63,7 +32,7 @@ function twitchLookup() {
 
   // console.log(model.twitchList);
   // displayUsers();
-  setTimeout(function(){ displayUsers(); }, 200);
+  setTimeout(function(){ displayUsers(); }, 500);
 };
 
 
@@ -82,14 +51,20 @@ function twitchLookup() {
 function displayUsers() {
   model.twitchList.forEach(function(user) {
     var name = $("<h4></h4>").text(user.name);
-    var nameView = $("<li></li>").attr("class", "name-group-item").append(name);
+    var logo = $("<img>");
+    logo.attr("src", user.logo);
+    // logo.attr("src");
+    var nameView = $("<li></li>").attr("class", "name-group-item").append(name, logo);
+    // var logo = $("<li></li>").attr("class", "name-group-item").append()
     $("#users ul").append(nameView);
   });
 }
 
 $(document).ready(function() {
   twitchLookup();
-  // displayUsers(twitchLookup(users))
+
 });
 
-// twitchLookup();
+
+
+
