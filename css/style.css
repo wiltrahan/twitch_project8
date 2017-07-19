@@ -40,9 +40,9 @@ li {
   background-color: #C5C3C6;
 }
 
-li:nth-child(odd) {
+/*li:nth-child(odd) {
   background-color: #DCDCDD;
-}
+}*/
 
 li h4 {
   font-family: LinLib;
@@ -53,4 +53,7 @@ li p {
   padding: 10px;
   color: #4C5C68;
   font-size: 20px;
+}
+.online {
+  background: green;
 }
