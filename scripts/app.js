@@ -8,13 +8,13 @@ var model = {
 function twitchLookup() {
   var users = [
   "ESL_SC2",
-  "OgamingSC2",
-  "cretetion",
+  // "OgamingSC2",
+  // "cretetion",
   "freecodecamp",
   // "storbeck",
-  "habathcx",
-  "RobotCaleb",
-  "noobs2ninjas"
+  "habathcx"
+  // "RobotCaleb"
+  // "noobs2ninjas"
 ];
   $.each(users, function(i) {
     $.ajax({
@@ -29,34 +29,23 @@ function twitchLookup() {
     })
 
   });
-
-  // console.log(model.twitchList);
-  // displayUsers();
-  setTimeout(function(){ displayUsers(); }, 500);
+  setTimeout(function(){ displayUsers(); }, 600);
 };
 
 
-// var view = {
-//   displayUsers: function() {
-//     model.twitchList.forEach(function(user) {
-//       var name = $("<h4></h4>").text(user.name)
-//       var nameView = $("<li></li>")
-//         .attr("class", "name-group-item")
-//         .append(name);
-//         $("#users ul").append(nameView);
-//     });
-//   }
-// };
+
 
 function displayUsers() {
   model.twitchList.forEach(function(user) {
-    var name = $("<h4></h4>").text(user.name);
+    var name = $("<h4></h4>").text(user.display_name);
     var status = $("<p></p>").text(user.status);
-    var logo = $("<img>");
-    logo.attr("src", user.logo);
-    // logo.attr("src");
-    var nameView = $("<li></li>").attr("class", "name-group-item").append(name, logo, status);
-    // var logo = $("<li></li>").attr("class", "name-group-item").append()
+    var logo = $("<img>").attr("src", user.logo);
+    var link = $("<a>").attr("href", user.url).append(name);
+
+    // $('<a>').append(name);
+
+    var nameView = $("<li>").attr("class", "name-group-item").append(link, logo, status);
+
     $("#users ul").append(nameView);
   });
 }
@@ -68,3 +57,5 @@ $(document).ready(function() {
 
 
 
+
+$
