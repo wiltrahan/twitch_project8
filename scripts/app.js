@@ -10,12 +10,17 @@ var users = [
   "OgamingSC2",
   "cretetion",
   "freecodecamp",
-  "storbeck",
+  // "storbeck",
   "habathcx",
   "RobotCaleb",
   "noobs2ninjas"
 ];
 
+//2. gets users from array
+//if online 'response.stream is not null', push to twitchlist array
+//if offline, make call to users endpoint
+//push info to twitchOffline array
+//once calls complete, call displayUsers function
 function twitchLookup() {
   $.each(users, function(i) {
     $.ajax({
@@ -42,46 +47,37 @@ function twitchLookup() {
   });
   setTimeout(function(){ displayUsers(); }, 1000);
 };
-//model.twitchOffline.push(response);
 
-// model.twitchList[0].stream.channel.name
-
-
+//3. iterate over each array and show on screen
 function displayUsers() {
-  var name, status, logo, link, nameView,
-  offName, offStatus, offLogo, offLink, offNameView;
+  var name, status, logo, link, nameView, viewers,
+  offName, offStatus, offLogo, offLink, offNameView, isOnline;
 
     model.twitchList.forEach(function(user) {
-      name = $("<h4></h4>").text(user.stream.channel.name);
+      isOnline = $("<h3></h3>").text("Streaming Live Now!").addClass('isLive');
+      name = $("<h4></h4>").text(user.stream.channel.display_name);
       status = $("<p></p>").text(user.stream.channel.status);
       logo = $("<img>").attr("src", user.stream.channel.logo);
+      viewers = $("<p></p>").text(user.stream.viewers + ' currently viewing').addClass('viewers');
       link = $("<a>").attr("href", user.stream.channel.url).append(name);
-      nameView = $("<li>").attr("class", "name-group-item").append(link, logo, status).addClass('online');
+      nameView = $("<li>").attr("class", "name-group-item").append(isOnline, link, logo, status, viewers).addClass('online');
       $("#users ul").append(nameView);
     });
 
     model.twitchOffline.forEach(function(offUser) {
-    offName = $("<h4></h4>").text(offUser.display_name);
-    offStatus = $("<p></p>").text(offUser.status);
-    offLogo = $("<img>").attr("src", offUser.logo);
-    offLink = $("<a>").attr("href", offUser.url).append(offName);
+      offName = $("<h4></h4>").text(offUser.display_name);
+      offStatus = $("<p></p>").text('currently offline');
+      offLogo = $("<img>").attr("src", offUser.logo);
+      offLink = $("<a>").attr("href", offUser.url).append(offName);
+      offNameView = $("<li>").attr("class", "name-group-item").append(offLink, offLogo, offStatus);
+      $("#users ul").append(offNameView);
+    });
+};
 
 
-    offNameView = $("<li>").attr("class", "name-group-item").append(offLink, offLogo, offStatus);
-
-    $("#users ul").append(offNameView);
-  });
-
-}
-
+//1. on ready call twitchLookup
 $(document).ready(function() {
   twitchLookup();
 });
 
 
-//first call to stream
-//if not null, get name, logo, game, stream_type=live or not, status
-//if null call to https://api.twitch.tv/kraken?
-//get name, logo
-
-// url: route + "channels/" + users[i] + "?",

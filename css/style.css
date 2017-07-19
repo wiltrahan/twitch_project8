@@ -37,7 +37,7 @@ ul li {
   font-family: LinLib;
 }
 li {
-  background-color: #C5C3C6;
+  background-color: #908E91;
 }
 
 /*li:nth-child(odd) {
@@ -55,5 +55,11 @@ li p {
   font-size: 20px;
 }
 .online {
-  background: green;
+  background: #B4B2B4;
+}
+h3.isLive {
+  color: red;
+}
+p.viewers {
+  margin-top: -20px;
 }
