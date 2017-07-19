@@ -1,7 +1,56 @@
+@import url('https://fonts.googleapis.com/css?family=Cabin|Raleway');
+
+@font-face {
+    font-family: LinLib;
+    src: url('LinLibertine_Rah.ttf');
+}
+
+body {
+  background: white;
+}
+#main {
+  background-color: white;
+  margin-top: 40px;
+  padding-left: 0px;
+  padding-bottom: 20px;
+}
+header h1 {
+  font-family: LinLib;
+  font-size: 80px;
+  color: #4C5C68;
+}
+
 img {
   height: 100px;
   width: 100px;
 }
 ul {
+  background-color: #4C5C68;
+  padding-left: 0px;
+
+}
+
+ul li {
+  padding: 15px;
   list-style-type: none;
+  margin-top: 2px;
+  font-family: LinLib;
+}
+li {
+  background-color: #C5C3C6;
+}
+
+li:nth-child(odd) {
+  background-color: #DCDCDD;
+}
+
+li h4 {
+  font-family: LinLib;
+  font-size: 30px;
+  color: #1758EF;
+}
+li p {
+  padding: 10px;
+  color: #4C5C68;
+  font-size: 20px;
 }

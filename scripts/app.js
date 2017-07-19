@@ -8,13 +8,13 @@ var model = {
 function twitchLookup() {
   var users = [
   "ESL_SC2",
-  // "OgamingSC2",
-  // "cretetion",
+  "OgamingSC2",
+  "cretetion",
   "freecodecamp",
   // "storbeck",
-  "habathcx"
-  // "RobotCaleb"
-  // "noobs2ninjas"
+  "habathcx",
+  "RobotCaleb",
+  "noobs2ninjas"
 ];
   $.each(users, function(i) {
     $.ajax({
