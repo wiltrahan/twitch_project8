@@ -15,7 +15,8 @@ var users = [
   "habathcx",
   "RobotCaleb",
   "noobs2ninjas",
-  "brunofin"
+  "brunofin",
+  "comster404"
 ];
 
 //2. gets users from array
